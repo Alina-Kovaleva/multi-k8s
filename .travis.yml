@@ -22,3 +22,15 @@ after_success:
   - docker push calipcoxp/multi-nginx
   - docker push calipcoxp/multi-server
   - docker push calipcoxp/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: ''
+  app: 'multi-docker'
+  env: 'MultiDocker-env'
+  bucket_name: ''
+  bucket_path: ''
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
